@@ -26,7 +26,7 @@ from neume_chunk import NeumeChunk
 class Kassia:
     """Base class for package"""
 
-    def __init__(self, input_filename, output_file="sample.pdf"):
+    def __init__(self, input_filename, output_file="examples/sample.pdf"):
         self.bnml = None
         self.doc = None  # SimpleDocTemplate()
         self.story = []
@@ -458,7 +458,7 @@ class Kassia:
             elif header_pagenum_style.alignment == TA_RIGHT:
                 canvas.drawRightString(self.doc.right, y_pos, str(canvas.getPageNumber()))
             elif header_pagenum_style.alignment == TA_CENTER:
-                canvas.drawCenteredString(self.doc.center, y_pos, str(canvas.getPageNumber()))
+                canvas.drawCentredString(self.doc.center, y_pos, str(canvas.getPageNumber()))
 
     def draw_footer(self, canvas, doc):
         """Draws the footer onto the canvas.
