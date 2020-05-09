@@ -44,6 +44,35 @@
     src: url('../fonts/KA Arvanitis/KAArvanitisMain-Regular.ttf');
 }
 
+/* ######### KA ED ######### */
+
+@font-face {
+    font-family: 'KAEDMain-Regular';
+    src: url('../fonts/KA ED/KAEDMain-Regular.ttf');
+}
+
+/* ######### KA EZ ######### */
+
+@font-face {
+    font-family: 'KAEZChronos-Regular';
+    src: url('../fonts/KA EZ/KAEZChronos-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAEZFthora-Regular';
+    src: url('../fonts/KA EZ/KAEZFthora-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAEZMain-Regular';
+    src: url('../fonts/KA EZ/KAEZMain-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAEZMartyria-Regular';
+    src: url('../fonts/KA EZ/KAEZMartyria-Regular.ttf');
+}
+
 /* ######### KA New Stathis ######### */
 
 @font-face {
