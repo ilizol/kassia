@@ -1,0 +1,77 @@
+/* ######### Alegreya ######### */
+
+@font-face {
+    font-family: 'Alegreya-Medium';
+    src: url('../fonts/Alegreya-2_008/Alegreya-Medium.ttf')
+}
+
+/* ######### KA Almouzios ######### */
+
+@font-face {
+    font-family: 'KAAlmouziosChronos-Regular';
+    src: url('../fonts/KA Almouzios/KAAlmouziosChronos-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAAlmouziosCombo-Regular';
+    src: url('../fonts/KA Almouzios/KAAlmouziosCombo-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAAlmouziosFthora-Regular';
+    src: url('../fonts/KA Almouzios/KAAlmouziosFthora-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAAlmouziosMain-Regular';
+    src: url('../fonts/KA Almouzios/KAAlmouziosMain-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAAlmouziosMartyria-Regular';
+    src: url('../fonts/KA Almouzios/KAAlmouziosMartyria-Regular.ttf');
+}
+
+/* ######### KA Arvanitis ######### */
+
+@font-face {
+    font-family: 'KAArvanitisChronos-Regular';
+    src: url('../fonts/KA Arvanitis/KAArvanitisChronos-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KAArvanitisMain-Regular';
+    src: url('../fonts/KA Arvanitis/KAArvanitisMain-Regular.ttf');
+}
+
+/* ######### KA New Stathis ######### */
+
+@font-face {
+    font-family: 'KANewStathisArchaia-Regular';
+    src: url('../fonts/KA New Stathis/KANewStathisArchaia-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KANewStathisChronos-Regular';
+    src: url('../fonts/KA New Stathis/KANewStathisChronos-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KANewStathisCombo-Regular';
+    src: url('../fonts/KA New Stathis/KANewStathisCombo-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KANewStathisFthora-Regular';
+    src: url('../fonts/KA New Stathis/KANewStathisFthora-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KANewStathisMain-Regular';
+    src: url('../fonts/KA New Stathis/KANewStathisMain-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KANewStathisMartyria-Regular';
+    src: url('../fonts/KA New Stathis/KANewStathisMartyria-Regular.ttf');
+}
