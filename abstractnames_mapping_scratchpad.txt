@@ -41,6 +41,7 @@ s       klasR               klasR (or just klas after apos. Depends on if this i
 ∂       haplDR              haplDR (special haple for hypporoe)
 ≠       coro                coro
 '       homa                homaD
+"       homaD2              homaD2
 :       homaD2R             homaD2R
 ;       homaR               homaDR
 

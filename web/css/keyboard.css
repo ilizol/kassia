@@ -1,0 +1,50 @@
+body {
+    font-size: 15px;
+}
+
+table {
+    text-align: center;
+    vertical-align: top;
+    letter-spacing: 0;
+    border-spacing: 0;
+    border-collapse: separate;
+    padding: 0;
+    margin-bottom: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tbody th {
+    width: 75px;
+    text-align: left;
+    padding-left: 5px;
+    background-color: #ddd;
+}
+
+table thead td, table tbody td {
+    width: 80px;
+}
+
+table tbody th, table tbody td {
+    height: 64px;
+    border: 1px solid black;
+}
+
+table tbody td {
+    font-size: 30px;
+}
+
+table tbody td span {
+    color: #aaa;
+}
+
+table tbody td pre {
+    width: 80px;
+    display: block;
+    text-align: left;
+    font-size: 10px;
+    color: #aaa;
+    position: absolute;
+    line-height: 0;
+    margin-top: -8px;
+}
