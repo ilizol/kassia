@@ -11,7 +11,6 @@ from reportlab.platypus import PageBreak, Paragraph, Spacer, Table, TableStyle, 
 from xml.etree.ElementTree import Element, ParseError, parse
 
 import font_reader
-import neume_dict
 from complex_doc_template import ComplexDocTemplate
 from cursor import Cursor
 from drop_cap import Dropcap
@@ -20,7 +19,6 @@ from glyph_line import GlyphLine
 from glyphs import Glyph
 from lyric import Lyric
 from neume import Neume
-from abstract_neume import AbstractNeume
 from neume_chunk import NeumeChunk
 
 
@@ -39,6 +37,7 @@ class Kassia:
         self.footer_paragraph = None
         self.init_styles()
         self.input_filename = input_filename
+        self.neume_info_dict = {}
         try:
             open(input_filename, "r")
             file_readable = True
@@ -47,7 +46,7 @@ class Kassia:
             logging.error("XML file not readable.")
 
         if file_readable:
-            font_reader.register_fonts()
+            self.neume_info_dict = font_reader.register_fonts()
             self.parse_file()
             self.build_document(output_file)
             self.create_pdf()
@@ -192,7 +191,7 @@ class Kassia:
                 self.draw_paragraph(child_elem, paragraph_attrib_dict)
 
             if child_elem.tag == 'troparion':
-                abstract_neumes_list = []
+                neumes_list = []
                 lyrics_list = []
                 dropcap = None
                 dropcap_offset = 0
@@ -205,13 +204,21 @@ class Kassia:
                         neumes_elem = troparion_child_elem
                         attribs_from_bnml = self.fill_attribute_dict(neumes_elem.attrib)
                         neumes_style = self.merge_paragraph_styles(self.styleSheet['Neumes'], attribs_from_bnml)
+                        # Get font family name without 'Main', 'Martyria', etc.
+                        font_family_name, font_family_type = neumes_style.fontName.rsplit(' ', 1)
+                        neume_config_dict = self.neume_info_dict[font_family_name]
 
-                        for abstract_neume_char in neumes_elem.text.strip().split():
-                            abstract_neume = AbstractNeume(char=abstract_neume_char,
+                        for neume_name in neumes_elem.text.strip().split():
+                            neume = Neume(name=neume_name,  # TODO: Replace with proper name
+                                          char=neume_name,
                                           font_family=neumes_style.fontName,
                                           font_size=neumes_style.fontSize,
-                                          color=neumes_style.textColor)
-                            abstract_neumes_list.append(abstract_neume)
+                                          color=neumes_style.textColor,
+                                          #standalone=neume_name in neume_config_dict['standalone'],
+                                          standalone=self.is_standalone(neume_name, font_family_name, font_family_type),
+                                          takes_lyric=self.takes_lyric(neume_name, font_family_name, font_family_type),
+                                          keep_with_next=neume_name in neume_config_dict['keep_with_next'])
+                            neumes_list.append(neume)
 
                     if troparion_child_elem.tag == 'lyrics':
                         lyrics_elem = troparion_child_elem
@@ -242,18 +249,17 @@ class Kassia:
                     lyrics_list[0].text = lyrics_list[0].text[1:]
                     lyrics_list[0].recalc_width()
 
-                if abstract_neumes_list:
-                    abstract_neume_chunks = neume_dict.chunk_neumes(abstract_neumes_list)
-                    neume_chunks = abstract_neume_chunks # TEMP
-                    for abstract_chunk in abstract_neume_chunks:
-                        for abstract_neume in abstract_chunk.list:
-                            """
-                            TO DO: Implement font configuration
-                            For every neume in abstract_neume_chunks, translate it into
-                            the font's character which is mapped to that neume and reconstruct
-                            the neume_chunk and then reconstruct the chunks_list
-                            """ 
-                            abstract_char = abstract_neume.char # TEMP
+                if neumes_list:
+                    neume_chunks = self.make_neume_chunks(neumes_list)
+                    #for chunk in neume_chunks:
+                    #    for neume in chunk.list:
+                    """
+                    TODO: Implement font configuration
+                    For every neume in neume_chunks, translate it into
+                    the font's character which is mapped to that neume and reconstruct
+                    the neume_chunk and then reconstruct the chunks_list
+                    """
+                    #        abstract_char = neume.char # TEMP
 
                     glyph_line: List[Glyph] = self.make_glyph_list(neume_chunks, lyrics_list)
                     lines_list: List[GlyphLine] = self.line_break(glyph_line,
@@ -507,6 +513,43 @@ class Kassia:
             canvas.drawCentredString(x_pos, y_pos, self.footer_paragraph.text)
 
     @staticmethod
+    def make_neume_chunks(neume_list: List[Neume]) -> List[NeumeChunk]:
+        """Break a list of neumes into logical chunks based on whether a linebreak can occur between them
+        :param neume_list: Iterable of type Neume
+        """
+        chunks_list: List[NeumeChunk] = []
+        i = 0
+        while i < len(neume_list):
+            # Grab next neume
+            neume = neume_list[i]
+            chunk = NeumeChunk(neume)
+
+            # Special case for Vareia, since it's non-breaking but comes before the next neume, unlike a fthora.
+            # So attach the next neume and increment the counter.
+            if neume.keep_with_next and (i + 1) < len(neume_list):
+                chunk.append(neume_list[i+1])
+                chunk.base_neume = neume_list[i+1]
+                i += 1
+            else:
+                chunk.base_neume = neume
+
+            # Add more neumes to chunk like fthora, ison, etc.
+            j = 1
+            if (i+1) < len(neume_list):
+                while not neume_list[i + j].standalone:
+                    chunk.append(neume_list[i+j])
+                    j += 1
+                    if i+j >= len(neume_list):
+                        break
+            i += j
+            chunks_list.append(chunk)
+            # Check if we're at the end of the array
+            if i >= len(neume_list):
+                break
+
+        return chunks_list
+
+    @staticmethod
     def make_glyph_list(neume_chunk_list: List[NeumeChunk], lyrics_list: List[Lyric]) -> List[Glyph]:
         """Takes a list of neumes and a list of lyrics and combines them into a single glyph list.
         :param neume_chunk_list: A list of neume chunks.
@@ -520,12 +563,12 @@ class Kassia:
             neume_chunk = neume_chunk_list[i]
 
             # If any neumes within chunk take lyrics
-            neume_takes_lyric: bool = False
+            lyrical_chunk: bool = False
             for neume in neume_chunk:
-                if neume_dict.takes_lyric(neume):
-                    neume_takes_lyric = True
+                if neume.takes_lyric:
+                    lyrical_chunk = True
 
-            if neume_takes_lyric:
+            if lyrical_chunk:
                 if l_ptr < len(lyrics_list):
                     lyric = lyrics_list[l_ptr]
                     glyph = Glyph(neume_chunk=neume_chunk,
@@ -709,6 +752,24 @@ class Kassia:
                     logging.warning("{} warning: {}".format(margin_attr, e))
                     attribute_dict.pop(margin_attr)
         return new_attr_dict
+
+    def is_standalone(self, neume_name: str, font_family_name: str, font_family_type: str):
+        if font_family_type == "Main":
+            return neume_name in self.neume_info_dict[font_family_name]['standalone']
+        if font_family_type == "Combo":
+            return neume_name in self.neume_info_dict[font_family_name]['standalone_combo']
+        if font_family_type == "Martyria":
+            return neume_name in self.neume_info_dict[font_family_name]['standalone_martyria']
+        else:
+            return False
+
+    def takes_lyric(self, neume_name: str, font_family_name: str, font_family_type: str):
+        if font_family_type == "Main":
+            return neume_name in self.neume_info_dict[font_family_name]['takes_lyric']
+        if font_family_type == "Combo":
+            return neume_name in self.neume_info_dict[font_family_name]['takes_lyric_combo']
+        else:
+            return False
 
 
 def main(argv):

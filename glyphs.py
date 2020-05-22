@@ -4,7 +4,6 @@ from reportlab.platypus import Flowable
 
 from lyric import Lyric
 from neume_chunk import NeumeChunk
-from neume_dict import stand_alone
 
 
 class Glyph(Flowable):
@@ -53,8 +52,8 @@ class Glyph(Flowable):
         else:
             return False
 
-    def get_standalone_neume(self):
-        for neume in self.neume_chunk:
-            if stand_alone(neume):
-                return neume
+    def get_base_neume(self):
+        """Returns the base neume of a chunk.
+        """
+        return self.neume_chunk.base_neume
 

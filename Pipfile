@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 reportlab = ">=3.5.23"
+ruamel-yaml = ">=0.16.10"
+schema = ">=0.7.2"
 
 [dev-packages]
 pylint = "*"

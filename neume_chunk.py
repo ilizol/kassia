@@ -2,8 +2,6 @@ import collections
 
 from reportlab.pdfbase import pdfmetrics
 
-import neume_dict
-
 
 class NeumeChunk(collections.MutableSequence):
     """A collection of Neumes, but with a calculated width and height.
@@ -11,7 +9,8 @@ class NeumeChunk(collections.MutableSequence):
     def __init__(self, *args):
         self.width = 0
         self.height = 0
-        self.list = list()
+        self.base_neume = None
+        self.list = []
         self.extend(list(args))
 
     def __len__(self):
@@ -38,31 +37,7 @@ class NeumeChunk(collections.MutableSequence):
         return str(self.list)
 
     def set_width(self):
-        max_neume_width = 0
-        for i, neume in enumerate(self.list):
-            neume_width = pdfmetrics.stringWidth(neume.char, neume.font_family, neume.font_size)
-
-            if neume_width == 0:
-                continue
-
-            # If kentima (or similar), add width of oligon that came before it.
-            # Kentima may come at the end of the chunk, after a psefeston, etc.,
-            # so we can't just check i-1.
-            # Just add oligon and assume it is part of the chunk.
-            # TODO: Find a better way to do this
-            if neume.char in neume_dict.nonPostBreakingNeumes:
-                neume_width += pdfmetrics.stringWidth('1', neume.font_family, neume.font_size)
-
-            # If vareia (or similar), add width of next neume.
-            # This prevents vareia from being at the end of a line.
-            if neume.char in neume_dict.nonPreBreakingNeumes and (i + 1) < len(self.list):
-                next_neume = self.list[i + 1]
-                neume_width += pdfmetrics.stringWidth(next_neume.char, next_neume.font_family, next_neume.font_size)
-
-            if max_neume_width < neume_width:
-                max_neume_width = neume_width
-
-        self.width = max_neume_width
+        sum(pdfmetrics.stringWidth(neume.char, neume.font_family, neume.font_size) for neume in self.list if neume.standalone)
 
     def set_height(self, neume):
         ascent, descent = pdfmetrics.getAscentDescent(neume.font_family, neume.font_size)
