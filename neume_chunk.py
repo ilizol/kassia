@@ -5,11 +5,13 @@ from reportlab.pdfbase import pdfmetrics
 
 class NeumeChunk(collections.MutableSequence):
     """A collection of Neumes, but with a calculated width and height.
+    A chunk contains one base neume, and other neumes that are anchored to the base neume.
     """
     def __init__(self, *args):
-        self.width = 0
-        self.height = 0
-        self.base_neume = None
+        self.width: float = 0
+        self.height: float = 0
+        self.base_neume: str = None
+        self.takes_lyric: bool = False  # whether some neume in the chunk could take a lyric
         self.list = []
         self.extend(list(args))
 
@@ -37,10 +39,10 @@ class NeumeChunk(collections.MutableSequence):
         return str(self.list)
 
     def set_width(self):
-        sum(pdfmetrics.stringWidth(neume.char, neume.font_family, neume.font_size) for neume in self.list if neume.standalone)
+        sum(pdfmetrics.stringWidth(neume.char, neume.font_fullname, neume.font_size) for neume in self.list if neume.standalone)
 
     def set_height(self, neume):
-        ascent, descent = pdfmetrics.getAscentDescent(neume.font_family, neume.font_size)
+        ascent, descent = pdfmetrics.getAscentDescent(neume.font_fullname, neume.font_size)
         self.height = ascent - descent
 
     def add_width(self, neume):
