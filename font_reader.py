@@ -89,7 +89,6 @@ def _read_font_config(filepath: str, validator: Schema):
         except Exception as exc:
             raise exc
     return font_config
->>>>>>> abstractify
 
 
 def register_font_path(font_path):
