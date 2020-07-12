@@ -1,5 +1,5 @@
-#! /bin/sh
 unset MV_GREENLIGHT
+CURRENT_DIR="$(pwd)"
 safe-mv ()
 {
     if [ -z "${MV_GREENLIGHT}" ]
@@ -108,15 +108,18 @@ char-to-charname ()
  # ie. "main"
 rename-filenames-num-to-charname ()
 {
-    SUBFONT="$1"
+    local SUBFONT="$1"
     case "$SUBFONT" in
-        "main"    ) RANGE_START=3   ; LENGTH=104  ;;
-        "martyria") RANGE_START=109 ; LENGTH=71   ;;
-        "fthora"  ) RANGE_START=182 ; LENGTH=79   ;;
-        "combo"   ) RANGE_START=263 ; LENGTH=20   ;;
-        "chronos" ) RANGE_START=285 ; LENGTH=44   ;;
-        "archaia" ) RANGE_START=331 ; LENGTH=45   ;;
+        "main"    ) local RANGE_START=2   ; local LENGTH=104  ;;
+        "martyria") local RANGE_START=107 ; local LENGTH=71   ;;
+        "fthora"  ) local RANGE_START=179 ; local LENGTH=79   ;;
+        "combo"   ) local RANGE_START=259 ; local LENGTH=20   ;;
+        "chronos" ) local RANGE_START=280 ; local LENGTH=59   ;;
+        "archaia" ) local RANGE_START=340 ; local LENGTH=45   ;;
     esac
+    local NUMBERBOYS=""
+    local CHARBOYS=""
+    local CHARNAMEBOYS=""
     while read -r f
     do
 
@@ -126,9 +129,9 @@ rename-filenames-num-to-charname ()
         CHARNAMEBOYS="$(char-to-charname "${CHARBOYS}")"
         safe-mv "${SUBFONT}-${NUMBERBOYS}.png" "${SUBFONT}-${CHARNAMEBOYS}.png"
 
-    done < <(awk -F "|" '{ print $3 }' ../neume_names_phase1.org \
+    done < <(python "${CURRENT_DIR}/../adoctablescripts.py"   \
+                    print-column 1 <../neume_names.adoc      \
                  | tail -n +"$RANGE_START" | head -"$LENGTH" \
-                 | sed -e 's/\\vert/|/' -e 's/\\`/`/' \
                  | nl)
 
 }
@@ -137,7 +140,9 @@ rename-filenames-num-to-charname ()
 # ie. "main"
 rename-filenames-char-to-charname ()
 {
-    SUBFONT="$1"
+    local SUBFONT="$1"
+    local CHARBOYS=""
+    local CHARNAMEBOYS=""
     while read -r f
     do
 
@@ -153,18 +158,20 @@ rename-filenames-char-to-charname ()
 # ie. "main"
 big-svg-to-small-pngs () 
 {
-    SUBFONT="$1"
+    local SUBFONT="$1"
     case "$SUBFONT" in
-        "main"    ) HEIGHT_PERCENT="0.96"               ;;
-        "martyria") HEIGHT_PERCENT="1.05"         ;;
-        "fthora"  ) HEIGHT_PERCENT="1.05"         ;;
-        "combo"   ) HEIGHT_PERCENT="1.05"         ;;
-        "chronos" ) HEIGHT_PERCENT="1.05"         ;;
-        "archaia" ) HEIGHT_PERCENT="1.05"         ;;
+        "main"    ) local HEIGHT_PERCENT="0.96"         ;;
+        "martyria") local HEIGHT_PERCENT="1.05"         ;;
+        "fthora"  ) local HEIGHT_PERCENT="1.05"         ;;
+        "combo"   ) local HEIGHT_PERCENT="1.05"         ;;
+        "chronos" ) local HEIGHT_PERCENT="1.05"         ;;
+        "archaia" ) local HEIGHT_PERCENT="1.05"         ;;
     esac
     convert -crop "100%x${HEIGHT_PERCENT}%" \
             "${HOME}/Documents/prog/python3/kassia/org/ka_fontimages/${SUBFONT}.svg" \
             "${SUBFONT}.png"
+    local PREFIX=""
+    local NUMBERBOYS=""
     while read -r f
     do
         PREFIX="$(echo "$f" | awk -F '-' '{ print $1 }')"

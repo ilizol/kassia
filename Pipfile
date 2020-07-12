@@ -5,9 +5,11 @@ name = "pypi"
 
 [packages]
 reportlab = ">=3.5.23"
+ruamel-yaml = ">=0.16.10"
+schema = ">=0.7.2"
 
 [dev-packages]
 pylint = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.7"
