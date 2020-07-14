@@ -19,7 +19,7 @@
             <verse font_family="EB Garamond-Regular" font_size="16" align="left" first_line_indent="20" space_after="15" leading="17" space_before="30" />
             <neumes font_family="KA Almouzios Main" font_size="30" align="left" word_spacing="4" leading="60" />
             <lyrics font_family="EB Garamond-Medium" font_size="16" space_before="26" />
-            <dropcap font_family="Gentium Plus-Regular" font_size="50" />
+            <dropcapeta_isonU font_family="Gentium Plus-Regular" font_size="50" />
             <header font_family="EB Garamond-Bold" font_size="14" align="center" />
             <footer font_family="EB Garamond-Bold" font_size="14" align="center" />
         </styles>
@@ -57,40 +57,40 @@
 
     <troparion>
         <neumes>
-            y ! 0 1 1 n
+            peta_kentU_hypsUR apos ison olig olig_psefD
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            ! ! ! q ! p ! Z 0 ! 1 0 p ! 0 n ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            r ! 0 1 1 n
+            apos apos apos peta apos peta_isonU apos olig_ken2U ison apos olig ison peta_isonU apos ison_psefD apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            ! ! ! q ! p ! Z 0 d
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            1 n ! ! ! ! s ! 1 0 @ Z @ å
+            peta_hypsUR apos ison olig olig_psefD
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            1 ~ 0 1 1 1 0 ! ! ! 0 p ! 1 ~ 0 ! ! ! F
+            apos apos apos peta apos peta_isonU apos olig_ken2U ison_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos apos_klasU apos olig ison elaf olig_ken2U elaf_klasU 
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
+        </neumes>
+        <neumes>
+            olig_kent ison olig olig olig ison apos apos apos ison peta_isonU apos olig_kent ison apos apos apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Κ
@@ -109,34 +109,34 @@
 
     <troparion>
         <neumes>
-            5 0 0 Z
+            olig_hypsUL ison ison olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
-        </neumes>
-        <neumes>
-            ! ! ! 0 ! Z 0 d
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            0 ! 1 n ! ! 1 0 @ Z @ å
+            apos apos apos ison apos olig_ken2U ison_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
-        </neumes>
-        <neumes font_family="KA Almouzios Combo">
-            u
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            ! ! ! 0 ! Z 0 ! x n ! _ 1 1 q ! q ! _ ! Z / L / 0 ! D
+            ison apos olig_psefD apos apos olig ison elaf olig_ken2U elaf_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            malfa_mpaU
+        </neumes>
+        <neumes>
+            olig_ken2U_hypsUR
+        </neumes>
+        <neumes color="#bb000e">
+            gorgU2
+        </neumes>
+        <neumes>
+            apos apos apos ison apos olig_ken2U ison apos olig_isonUL_ken2UR_psefD apos syne olig olig peta apos peta apos syne apos olig_ken2U vare apos_apos vare ison apos_haplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Κ
@@ -156,22 +156,22 @@
 
     <troparion>
         <neumes>
-            5 A q S ! ! 1 1 q ! 1 ~ 0 ! ! ! s
+            olig_hypsUL_klasD peta_klasD apos apos olig olig peta apos olig_kent ison apos apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            1 q S
-        </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            ! ! ! ! 1 n ! ! ! 1 n ! ! s
+            olig peta_klasD
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            flatU
+        </neumes>
+        <neumes>
+            apos apos apos apos olig_psefD apos apos apos olig_psefD apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Θ
@@ -192,40 +192,40 @@
 
     <troparion>
         <neumes>
-            y ! 0 0 0 0 / L 1 1 @ 1 0 ` 0 d
+            peta_kentU_hypsUR apos ison ison ison ison vare apos_apos olig olig elaf olig ison ken2 ison_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            0 1 1 n ! ! _ Z 0 ! 0 n ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            0 1 w ! _ 0 q S ! _ Z @ å
+            ison olig olig_psefD apos apos syne olig_ken2U ison apos ison_psefD apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
-        </neumes>
-        <neumes>
-            5 1 0 0 0 / P 1 `
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            1 n ! ! ! s
+            ison olig peta_oligU apos syne ison peta_klasD apos syne olig_ken2U elaf_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <neumes>
-            ! 0 ! 2 N ! ! ! / P 1 1 1 n ! / L / 0 ! F
+            olig_hypsUL olig ison ison ison vare ison_apos olig ken2 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            apos ison apos olig_kentDR_psefD2 apos apos apos vare ison_apos olig olig olig_psefD apos vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Δ
@@ -245,34 +245,34 @@
 
     <troparion>
         <neumes>
-            5 q ! 0 n ! ! 1 1 a ! 0 / L 1 1 1 a
+            olig_hypsUL peta apos ison_psefD apos apos olig olig_klasU apos ison vare apos_apos olig olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            0 Z
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            ! ! ! ! 1 1 a p ! _ 1 n ! ! ! s
+            ison olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
-        </neumes>
-        <neumes>
-            4 1 @ 1 Z 0 d ! 0 1 n ! / L 1 1 p ! _ å
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            / L 1 1 q S / L / 0 ! F
+            apos apos apos apos olig olig_klasU peta_isonU apos syne olig_psefD apos apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            mhypo_mzoU
+        </neumes>
+        <neumes>
+            olig_hypsUR olig elaf olig olig_ken2U ison_klasU apos ison olig_psefD apos vare apos_apos olig olig peta_isonU apos syne_klasU 
+        </neumes>
+        <neumes color="#bb000e">
+            malfa_mpaU
+        </neumes>
+        <neumes>
+            vare apos_apos olig olig peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Σ
@@ -293,40 +293,40 @@
 
     <troparion>
         <neumes>
-            5 1 n ! ! ! Z 0 1 2 N ! ! ! 0 ! ! 1 1 0 2 N
+            olig_hypsUL olig_psefD apos apos apos olig_ken2U ison olig olig_kentDR_psefD2 apos apos apos ison apos apos olig olig ison olig_kentDR_psefD2
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            ! ! 1 2 N ! ! ! Z
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            ! ! ! ! ! 1 1 1 a
+            apos apos olig olig_kentDR_psefD2 apos apos apos olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            q ! _ 1 n ! ! ! 1 n _ Z @ å
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            y ! 0 / L 1 1 @ 1 0 ` 0 d
+            apos apos apos apos apos olig olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            ! 1 1 n ! ! ! ! s / L 1 1 q S / L / 0 ! F
+            peta apos syne olig_psefD apos apos apos olig_psefD syne olig_ken2U elaf_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            mhypo_mzoU
+        </neumes>
+        <neumes>
+            peta_kentU_hypsUR apos ison vare apos_apos olig olig elaf olig ison ken2 ison_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            apos olig olig_psefD apos apos apos apos_klasU vare apos_apos olig olig peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Α
@@ -346,61 +346,58 @@
 
     <troparion>
         <neumes>
-            6 A ! 1 2 N ! ! ! q ! 0 ! 1 n ! ! 1 1 a
+            olig_kentU_hypsUR_klasD apos olig olig_kentDR_psefD2 apos apos apos peta apos ison apos olig_psefD apos apos olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            ! 1 q ! 1 n ! ! ! 1 1 p ! _ å
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            0 0
+            apos olig peta apos olig_psefD apos apos apos olig olig peta_isonU apos syne_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Combo">
-            u
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            ! ! ! q ! p ! Z 0 ! q S ! _ 2 N ! ! _ Z @ å
+            ison ison olig_ken2U_hypsUR
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
-        </neumes>
-        <neumes>
-            5 0 / L 1 1 @ 1 0 ` 0
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            ! 1 n ! ! Z 0 ! 0 n ! ! s
+            apos apos apos peta apos peta_isonU apos olig_ken2U ison apos peta_klasD apos syne olig_kentDR_psefD2 apos apos syne olig_ken2U elaf_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
-        </neumes>
-        <neumes>
-            0 0 3 ` 0 ! 1 `
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <neumes>
-            1 n ! ! ! s
+            olig_hypsUL ison vare apos_apos olig olig elaf olig ison ken2 ison
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            1 n ! ! ! 1 n ! / L / 0 ! F
+            apos olig_psefD apos apos olig_ken2U ison apos ison_psefD apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            malfa_mpaU
+        </neumes>
+        <neumes>
+            ison ison olig_kentU ken2 ison apos olig ken2 
+        </neumes>
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos olig_psefD apos vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Κ
@@ -424,76 +421,76 @@
 
     <troparion>
         <neumes>
-            5 0 0 Z
+            olig_hypsUL ison ison olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
-        </neumes>
-        <neumes>
-            ! ! ! 1 n ! ! ! 1 1 1 a
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            ! 1 1 1 n
+            apos apos apos olig_psefD apos apos apos olig olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            ! ! 0 ! 1 n ! ! Z 0 d
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            0 ! Z n ! ! 0 n ! ! s
+            apos olig olig olig_psefD
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
-        </neumes>
-        <neumes>
-            1 1 q ! 1 @ 1 q ! 0 ! 1 @ 1 1 1 a
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            0 ! q S ! _ 2 N ! ! _ Z @ å
+            apos apos ison apos olig_psefD apos apos olig_ken2U ison_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
-        </neumes>
-        <neumes>
-            y ! 0 ! 1 n ! ! 1 0 ` 0 d
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            3 n ! ! ! 0 d ! ! 1 1 0 ! 0 n ! !
+            ison apos olig_ken2U_psefD apos apos ison_psefD apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
-        </neumes>
-        <neumes>
-            0 1 ~ 1 q ! 1 `
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            1 n ! ! ! s
+            olig olig peta apos olig elaf olig peta apos ison apos olig elaf olig olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            # 1 1 Z ! 0 0 ! q ! 0 ! 1 n ! / L / 0 ! F
+            ison apos peta_klasD apos syne olig_kentDR_psefD2 apos apos syne olig_ken2U elaf_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            mhypo_mzoU
+        </neumes>
+        <neumes>
+            peta_kentU_hypsUR apos ison apos olig_psefD apos apos olig ison ken2 ison_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            olig_kentU_psefD apos apos apos ison_klasU apos apos olig olig ison apos ison_psefD apos apos
+        </neumes>
+        <neumes color="#bb000e">
+            malfa_mpaU
+        </neumes>
+        <neumes>
+            ison olig_kent olig peta apos olig ken2 
+        </neumes>
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            apel olig olig olig_ken2U apos ison ison apos peta apos ison apos olig_psefD apos vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Δ
@@ -517,70 +514,70 @@
 
     <troparion>
         <neumes>
-            5 1 n ! ! 1 1 n ! ! ! 2 N ! ! 1 0 ` 0 0 Z
+            olig_hypsUL olig_psefD apos apos olig olig_psefD apos apos apos olig_kentDR_psefD2 apos apos olig ison ken2 ison ison olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
-        </neumes>
-        <neumes>
-            @ 1 `
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            1 n ! ! ! s
+            elaf olig ken2 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            # 0 1 n ! ! ! q ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            gorgDR
         </neumes>
         <neumes>
-            4 1 q ! 1 `
+            olig_psefD apos apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
-        </neumes>
-        <neumes>
-            1 n ! ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            ! 0 ! 1 @ 1 1 1 a
+            apel ison olig_psefD apos apos apos peta apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            ! 1 1 2 N ! ! ! 0 n ! ! 1 1 1 Z
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <neumes>
-            @ 1 `
+            olig_hypsUR olig peta apos olig ken2
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
-        </neumes>
-        <neumes>
-            1 n ! ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            gorgDR
         </neumes>
         <neumes>
-            3 n ! ! ! ! 1 1 n ! ! 1 n ! ! 1 n ! / L / 0 ! F
+            olig_psefD apos apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            apos ison apos olig elaf olig olig olig_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            apos olig olig olig_kentDR_psefD2 apos apos apos ison_psefD apos apos olig olig olig olig_ken2U
+        </neumes>
+        <neumes color="#bb000e">
+            gorgU2
+        </neumes>
+        <neumes>
+            elaf olig ken2
+        </neumes>
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            olig_kentU_psefD apos apos apos apos olig olig_psefD apos apos olig_psefD apos apos olig_psefD apos vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Κ
@@ -602,28 +599,28 @@
 
     <troparion>
         <neumes>
-            5 q ! 0 1 2 N ! ! ! ! ! Z p ! _ å
+            olig_hypsUL peta apos ison olig olig_kentDR_psefD2 apos apos apos apos apos olig_ken2U peta_isonU apos syne_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
-        </neumes>
-        <neumes>
-            1 ~ 0 q ! 1 `
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            1 n ! ! ! 0 ! ! Z @ 1 0 ` 0 ! 0 ! 1 @ 1 1 1 a
+            olig_kent ison peta apos olig ken2
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            gorgDR
         </neumes>
         <neumes>
-            0 ! ! Z 0 ! 0 n ! ! ! 1 1 1 n ! / L / 0 ! F
+            olig_psefD apos apos apos ison apos apos olig_ken2U elaf olig ison ken2 ison apos ison apos olig elaf olig olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            ison apos apos olig_ken2U ison apos ison_psefD apos apos apos olig olig olig_psefD apos vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Ε
@@ -652,106 +649,106 @@
 
     <troparion>
         <neumes>
-            y ! 0 1 1 n
+            peta_kentU_hypsUR apos ison olig olig_psefD
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            ! ! ! q ! 0 ! Z 0 d
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            3 n ! ! ! ! 1 Z
+            apos apos apos peta apos ison apos olig_ken2U ison_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
-        </neumes>
-        <neumes>
-            ! ! s 0 ! Z n ! ! 0 n ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            0 0 3 ` 0 ! 1  @ 1 a
+            olig_kentU_psefD apos apos apos apos olig olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            ! ! 1 @ Z
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            ! ! 1 n ! ! ! s
+            apos apos_klasU ison apos olig_ken2U_psefD apos apos ison_psefD apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
-        </neumes>
-        <neumes>
-            5 1 1 n
-        </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            ! ! Z
+            ison ison olig_kentU ken2 ison apos olig  elaf olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
-        </neumes>
-        <neumes>
-            ! ! s 0 ! 0 _ 1 1 1 a
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            0 1 1 n
+            apos apos olig elaf olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            ! ! ! 1 0 ! ! 1 1 p ! _ å
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            4 n ! ! 1 n ! ! 1 1 a @ 1 n ! ! q ! _ Z @ å
+            apos apos olig_psefD apos apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
-        </neumes>
-        <neumes>
-            0 4 0 Z 0 ! 1 0 0 ! 1 `
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <neumes>
-            1 n ! ! ! 0 1 n ! ! _ 1 1 1 a
+            olig_hypsUL olig olig_psefD
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            2 N
-        </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            ! ! s ! ! 1 n ! ! 0 q S / L / 0 ! F
+            apos apos olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            gorgU2
+        </neumes>
+        <neumes>
+            apos apos_klasU ison apos ison syne olig olig olig_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            ison olig olig_psefD
+        </neumes>
+        <neumes color="#bb000e">
+            flatU
+        </neumes>
+        <neumes>
+            apos apos apos olig ison apos apos olig olig peta_isonU apos syne_klasU 
+        </neumes>
+        <neumes color="#bb000e">
+            malfa_mpaU
+        </neumes>
+        <neumes>
+            olig_hypsUR_psefD apos apos olig_psefD apos apos olig olig_klasU elaf olig_psefD apos apos peta apos syne olig_ken2U elaf_klasU 
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
+        </neumes>
+        <neumes>
+            ison olig_hypsUR ison olig_ken2U ison apos olig ison ison apos olig ken2 
+        </neumes>
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos ison olig_psefD apos apos syne olig olig olig_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            olig_kentDR_psefD2
+        </neumes>
+        <neumes color="#bb000e">
+            flatU
+        </neumes>
+        <neumes>
+            apos apos_klasU apos apos olig_psefD apos apos ison peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Μ
@@ -778,22 +775,22 @@
 
     <troparion>
         <neumes>
-            5 q ! 0 0 / L 1 1 1 @ 0 ` 0 d
+            olig_hypsUL peta apos ison ison vare apos_apos olig olig olig elaf ison ken2 ison_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            0 1 1 n ! ! ! 1 Z
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            ! ! ! 0 ! Z 0 p ! _ q S / L / 0 ! F
+            ison olig olig_psefD apos apos apos olig olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            gorgU2
+        </neumes>
+        <neumes>
+            apos apos apos ison apos olig_ken2U ison peta_isonU apos syne peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Α
@@ -810,46 +807,46 @@
 
     <troparion>
         <neumes>
-            5 0 1 1 n
+            olig_hypsUL ison olig olig_psefD
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            ! ! 0 1 n ! ! 1 n ! ! Z 0 d ! ! 1 1 p ! _ å
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            0 1 1 q ! 1 n ! ! Z 0 0 q ! 1 `
+            apos apos ison olig_psefD apos apos olig_psefD apos apos olig_ken2U ison_klasU apos apos olig olig peta_isonU apos syne_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
-        </neumes>
-        <neumes>
-            1 n ! ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            # 0 1 1 1 0 ! 1 n ! ! 1 1 0 0 1 0 / P 1 `
+            ison olig olig peta apos olig_psefD apos apos olig_ken2U ison ison peta apos olig ken2
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
-        </neumes>
-        <neumes>
-            1 n ! ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            gorgDR
         </neumes>
         <neumes>
-            ! ! 1 @ q S / L / 0 ! F
+            olig_psefD apos apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            apel ison olig olig olig ison apos olig_psefD apos apos olig olig ison ison olig ison vare ison_apos olig ken2
+        </neumes>
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            apos apos olig elaf peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Τ
@@ -872,28 +869,28 @@
 
     <troparion>
         <neumes>
-            1 ~ 1 1 1 0 ! 1 1 @ q S ! ! 1 1 p ! _ å
+            olig_kent olig olig olig ison apos olig olig elaf peta_klasD apos apos olig olig peta_isonU apos syne_klasU 
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
-        </neumes>
-        <neumes>
-            0 0 3 ` 0 0 @ 1 1 0 / P 1 `
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            1 n ! ! ! 0 2 N
+            ison ison olig_kentU ken2 ison ison elaf olig olig ison vare ison_apos olig ken2
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
+        <neumes color="#bb000e">
+            gorgDR
         </neumes>
         <neumes>
-            ! ! 0 1 n ! ! 1 n ! ! 1 1 0 d p ! _ 0 q S / L / 0 ! F
+            olig_psefD apos apos apos ison olig_kentDR_psefD2
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            flatU
+        </neumes>
+        <neumes>
+            apos apos ison olig_psefD apos apos olig_psefD apos apos olig olig ison_klasU peta_isonU apos syne ison peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Υ
@@ -912,46 +909,46 @@
 
     <troparion>
         <neumes>
-            5 1 2 N ! ! ! q ! 0 1 1
+            olig_hypsUL olig olig_kentDR_psefD2 apos apos apos peta apos ison olig olig
         </neumes>
-        <neumes font_family="KA Almouzios Fthora" color="#bb000e">
-            -
-        </neumes>
-        <neumes>
-            @ 1 n ! ! _ 1 1 1 a
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            flatU
         </neumes>
         <neumes>
-            0 1 2 N ! ! ! 1 n ! ! _ 1 1 1 a
+            elaf olig_psefD apos apos syne olig olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
-        </neumes>
-        <neumes>
-            # 0 3 ` 0 0 x
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            m
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            @ 1 `
+            ison olig olig_kentDR_psefD2 apos apos apos olig_psefD apos apos syne olig olig olig_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
-        </neumes>
-        <neumes>
-            1 n ! ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
         </neumes>
         <neumes>
-            3 n ! ! ! ! 1 1 n ! ! q ! _ q S / L / 0 ! F
+            apel ison olig_kentU ken2 ison ison olig_isonUL_ken2UR
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            gorgU2R
+        </neumes>
+        <neumes>
+            elaf olig ken2
+        </neumes>
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            olig_kentU_psefD apos apos apos apos olig olig_psefD apos apos peta apos syne peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Φ
@@ -970,34 +967,34 @@
 
     <troparion>
         <neumes>
-            1 ~ 1 1 1 0 n ! ! Z 0 p S ! _ 1 1 1 0 0 ! Z n ! ! 0 n ! ! s
+            olig_kent olig olig olig ison_psefD apos apos olig_ken2U ison peta_isonU_klasD apos syne olig olig olig ison ison apos olig_ken2U_psefD apos apos ison_psefD apos apos_klasU
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            q !
-        </neumes>
-        <neumes>
-            1 ~ 1 Z
-        </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            x
+        <neumes color="#bb000e">
+            malfa_mpaU
         </neumes>
         <neumes>
-            @ 1 `
+            olig_kent olig olig_ken2U
         </neumes>
-        <neumes font_family="KA Almouzios Chronos" color="#bb000e">
-            n
-        </neumes>
-        <neumes>
-            1 n ! ! ! s
-        </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            r $
+        <neumes color="#bb000e">
+            gorgU2
         </neumes>
         <neumes>
-            3 n ! ! ! 1 n ! ! ! Z @ 1 0 ` 0 ! q ! _ 0 q S / L / 0 ! F
+            elaf olig ken2
         </neumes>
-        <neumes font_family="KA Almouzios Martyria" color="#bb000e">
-            y ^
+        <neumes color="#bb000e">
+            gorgDR
+        </neumes>
+        <neumes>
+            olig_psefD apos apos apos_klasU
+        </neumes>
+        <neumes color="#bb000e">
+            mdeltapo_mdiU
+        </neumes>
+        <neumes>
+            olig_kentU_psefD apos apos apos olig_psefD apos apos apos olig_ken2U elaf olig ison ken2 ison apos peta apos syne ison peta_klasD vare apos_apos vare ison apos_diplD
+        </neumes>
+        <neumes color="#bb000e">
+            mhypo_mzoU
         </neumes>
         <dropcap>
             Υ
