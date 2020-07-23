@@ -1,0 +1,204 @@
+<bnml>
+    <identification>
+        <work-title>ΚΟΝΤΑΚΙΟΝ ΠΡΟΦΗΤΗ ΗΛΙΑ</work-title>
+        <author>Χουρμουζίου Χαρτοφύλακος (†1840)</author>
+    </identification>
+    <defaults>
+        <page-layout>
+            <paper-size>letter</paper-size>
+            <page-margins top_margin="22" bottom_margin="22" left_margin="40" right_margin="40" />
+        </page-layout>
+        <styles>
+            <title font_family="Alegreya-Bold" font_size="18" align="center" space_after="1" />
+            <subtitle />
+            <heading1 font_family="Alegreya-Medium" font_size="16" align="center" space_after="-7" />
+            <heading2 font_family="Alegreya-Medium" font_size="16" color="#bb000e" align="center" space_before="-10" space_after="11" />
+            <heading3 font_family="Alegreya-Medium" font_size="16" align="right" />
+            <heading4 font_family="Alegreya-Medium" font_size="16" align="center" />
+            <paragraph />
+            <verse font_family="Alegreya-Medium" font_size="16" align="left" first_line_indent="20" space_after="15" leading="17" space_before="30" />
+            <neumes font_family="KA New Stathis Main" font_size="30" align="left" word_spacing="0" leading="60" />
+            <lyrics font_family="Alegreya-Medium" font_size="16" space_before="28" />
+            <dropcap font_family="Alegreya-Bold" font_size="40" color="#bb000e" />
+            <header font_family="Alegreya-Italic" font_size="8" align="center" />
+            <footer font_family="Alegreya-Italic" font_size="8" align="center" />
+        </styles>
+    </defaults>
+
+    <paragraph style="title">
+        ΚΟΝΤΑΚΙΟΝ ΠΡΟΦΗΤΗ ΗΛΙΑ
+    </paragraph>
+
+    <paragraph style="h1">
+        Χουρμουζίου Χαρτοφύλακος (†1840)
+    </paragraph>
+
+    <paragraph style="h2">
+        Ἦχος
+        <font font_family="KA New Stathis Martyria" font_size="30">o</font>
+        Δι
+        <font font_family="KA New Stathis Fthora" font_size="30">∂</font>
+    </paragraph>
+
+    <troparion>
+        <dropcap>Π</dropcap>
+        <neumes>elaf</neumes>
+        <lyrics>Προ</lyrics>
+        <neumes>ison</neumes>
+        <lyrics>φη</lyrics>
+        <neumes>olig_ken2DR</neumes>
+        <lyrics>η</lyrics>
+        <neumes>ison</neumes>
+        <lyrics>τα</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>και</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>olig</neumes>
+        <lyrics>προ</lyrics>
+        <neumes>peta</neumes>
+        <lyrics>ο</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>πτα</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>ison</neumes>
+        <lyrics>των</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>ison</neumes>
+        <lyrics>με</lyrics>
+        <neumes>ison</neumes>
+        <lyrics>γα</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>λουρ</lyrics>
+        <neumes>olig</neumes>
+        <lyrics>γι</lyrics>
+        <neumes>olig</neumes>
+        <lyrics>ων</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>ison</neumes>
+        <lyrics>του</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>Θε</lyrics>
+        <neumes>peta</neumes>
+        <lyrics>ου</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>Η</lyrics>
+        <neumes>olig</neumes>
+        <lyrics>λι</lyrics>
+        <neumes>ison</neumes>
+        <lyrics>α</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>με</lyrics>
+        <neumes>olig</neumes>
+        <lyrics>γα</lyrics>
+        <neumes>olig_kentDR_psefD2</neumes>
+        <lyrics>λω</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>ω</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>νυ</lyrics>
+        <neumes>apos_klasU</neumes>
+        <lyrics>με</lyrics>
+        <!-- ###### MARTYRIA ###### -->
+        <neumes color="#bb000e">
+            mbetaapo_mdiU
+        </neumes>
+        <neumes>elaf</neumes>
+        <lyrics>ο</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>ison</neumes>
+        <lyrics>το</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>olig</neumes>
+        <lyrics>φθεγ</lyrics>
+        <neumes>olig</neumes>
+        <lyrics>μα</lyrics>
+        <neumes>peta</neumes>
+        <lyrics>τι</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>σου</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>olig</neumes>
+        <lyrics>στη</lyrics>
+        <neumes>ison</neumes>
+        <lyrics>σας</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>τα</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>ison</neumes>
+        <lyrics>υ</lyrics>
+        <neumes>ison</neumes>
+        <lyrics>δα</lyrics>
+        <neumes>peta</neumes>
+        <lyrics>τορ</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>ρυ</lyrics>
+        <neumes>ison</neumes>
+        <lyrics>τα</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>peta_isonU</neumes>
+        <lyrics>νε</lyrics>
+        <neumes>apos_apos</neumes>
+        <neumes color="#bb000e">
+            gorgU
+        </neumes>
+        <lyrics>ε</lyrics>
+        <neumes>olig_isonUL_ken2UR</neumes>
+        <neumes color="#bb000e">
+            gorgU2R
+        </neumes>
+        <lyrics>ε</lyrics>
+        <neumes>vare_ison</neumes>
+        <lyrics>ε</lyrics>
+        <neumes>apos</neumes>
+        <neumes color="#bb000e">
+            gorgUR
+        </neumes>
+        <lyrics>ε</lyrics>
+        <neumes>ison_klasU</neumes>
+        <lyrics>φη</lyrics>
+        <!-- ###### MARTYRIA ###### -->
+        <neumes color="#bb000e">
+            mbetaapo_mbouU
+        </neumes>
+        <neumes>olig_kentDR_psefD2</neumes>
+        <lyrics>πρε</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>σβευ</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>ε</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>υ</lyrics>
+        <neumes>olig</neumes>
+        <lyrics>περ</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>olig</neumes>
+        <lyrics>η</lyrics>
+        <neumes>peta</neumes>
+        <lyrics>μων</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>apos</neumes>
+        <lyrics>τον</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>olig</neumes>
+        <lyrics>μο</lyrics>
+        <neumes>elaf</neumes>
+        <lyrics>νον</lyrics>
+        <!-- WORD BREAK -->
+        <neumes>olig</neumes>
+        <lyrics>Φι</lyrics>
+        <neumes>olig_ken2U</neumes>
+        <lyrics>λαν</lyrics>
+        <neumes>apos</neumes>
+        <lyrics>θρω</lyrics>
+        <neumes>ison_diplD</neumes>
+        <lyrics>πον</lyrics>
+    </troparion>
+
+</bnml>
