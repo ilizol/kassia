@@ -6,10 +6,10 @@
     <defaults>
         <page-layout>
             <paper-size>letter</paper-size>
-            <page-margins top_margin="22" bottom_margin="22" left_margin="40" right_margin="40" />
+            <page-margins top_margin="22" bottom_margin="22" left_margin="45" right_margin="45" />
         </page-layout>
         <styles>
-            <title font_family="EB Garamond-Medium" font_size="18" align="center" space_after="1" />
+            <title font_family="EB Garamond-Bold" font_size="18" align="center" space_after="1" />
             <subtitle />
             <heading1 font_family="EB Garamond-Regular" font_size="16" align="center" space_after="-7" />
             <heading2 font_family="EB Garamond-Medium" font_size="16" color="#bb000e" align="center" space_before="-10" space_after="11" />
@@ -19,7 +19,7 @@
             <verse font_family="EB Garamond-Regular" font_size="16" align="left" first_line_indent="20" space_after="15" leading="17" space_before="30" />
             <neumes font_family="KA Almouzios Main" font_size="30" align="left" word_spacing="0" leading="60" />
             <lyrics font_family="EB Garamond-Medium" font_size="16" space_before="28" />
-            <dropcap font_family="EB Garamond-Medium" font_size="40" color="#bb000e" />
+            <dropcap font_family="EB Garamond-Bold" font_size="40" color="#bb000e" />
             <header font_family="EB Garamond-Bold" font_size="8" align="center" />
             <footer font_family="EB Garamond-Bold" font_size="8" align="center" />
         </styles>

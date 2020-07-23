@@ -6,7 +6,7 @@
     <defaults>
         <page-layout>
             <paper-size>letter</paper-size>
-            <page-margins top_margin="22" bottom_margin="22" left_margin="40" right_margin="40" />
+            <page-margins top_margin="22" bottom_margin="22" left_margin="45" right_margin="45" />
         </page-layout>
         <styles>
             <title font_family="Alegreya-Bold" font_size="18" align="center" space_after="1" />

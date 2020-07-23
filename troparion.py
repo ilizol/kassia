@@ -33,7 +33,9 @@ class Troparion(Flowable):
     def draw(self):
         canvas: Canvas = self.canv
         canvas.saveState()
-        canvas.translate(0, self.height-self.glyphlines[0].height)
+        # TODO fix this for left margin issue
+        # canvas.translate(0, self.height-self.glyphlines[0].height)
+        canvas.translate(-5, self.height-self.glyphlines[0].height)
 
         iter_lines = iter(self.glyphlines)
 
