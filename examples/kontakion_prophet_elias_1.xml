@@ -19,7 +19,7 @@
             <verse font_family="Alegreya-Medium" font_size="16" align="left" first_line_indent="20" space_after="15" leading="17" space_before="30" />
             <neumes font_family="KA New Stathis Main" font_size="30" align="left" word_spacing="0" leading="60" />
             <lyrics font_family="Alegreya-Medium" font_size="16" space_before="28" />
-            <dropcap font_family="Alegreya-Bold" font_size="40" color="#bb000e" />
+            <dropcap font_family="Alegreya-Bold" font_size="40" color="#bb000e" right_indent="0" />
             <header font_family="Alegreya-Italic" font_size="8" align="center" />
             <footer font_family="Alegreya-Italic" font_size="8" align="center" />
         </styles>
