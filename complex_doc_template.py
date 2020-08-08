@@ -18,7 +18,12 @@ class ComplexDocTemplate(BaseDocTemplate):
     def build(self, flowables, onFirstPage=_doNothing, onEvenPages=_doNothing, onOddPages=_doNothing, canvasmaker=canvas.Canvas):
         self._calc()  # In case we changed margins sizes etc. Copied from SampleDocTemplate
 
-        frameT = Frame(self.leftMargin, self.bottomMargin, self.width, self.height, id='normal')
+        frameT = Frame(self.leftMargin, self.bottomMargin,
+                       self.width, self.height,
+                       leftPadding=0, rightPadding=0, bottomPadding=0, topPadding=0,
+                       # enable showBoundary for debug reasons
+                       # showBoundary=1,
+                       id='normal')
 
         self.addPageTemplates([
             PageTemplate(id='First', frames=frameT, onPage=onFirstPage, pagesize=self.pagesize),
