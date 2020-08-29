@@ -4,7 +4,6 @@ from reportlab.platypus import Flowable
 
 from lyric import Lyric
 from neume_chunk import NeumeChunk
-from neume_dict import stand_alone
 
 
 class Glyph(Flowable):
@@ -36,7 +35,7 @@ class Glyph(Flowable):
         pos_x: float = 0
         for i, neume in enumerate(self.neume_chunk):
             canvas.setFillColor(neume.color)
-            canvas.setFont(neume.font_family, neume.font_size)
+            canvas.setFont(neume.font_fullname, neume.font_size)
             if i > 0:
                 pos_x += self.neume_chunk[i - 1].width
             canvas.drawString(pos_x, self.neume_chunk_pos[1], neume.char)
@@ -53,8 +52,8 @@ class Glyph(Flowable):
         else:
             return False
 
-    def get_standalone_neume(self):
-        for neume in self.neume_chunk:
-            if stand_alone(neume):
-                return neume
+    def get_base_neume(self):
+        """Returns the base neume of a chunk.
+        """
+        return self.neume_chunk.base_neume
 

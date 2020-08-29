@@ -2,20 +2,19 @@
 import sys
 import logging
 from copy import deepcopy
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
-from reportlab.lib.enums import *
-from reportlab.lib.styles import *
+from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT, TA_JUSTIFY
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.pdfbase import pdfmetrics
-from reportlab.platypus import PageBreak, Paragraph, Spacer, Table, TableStyle, NextPageTemplate
+from reportlab.platypus import PageBreak, Paragraph, Spacer
 from xml.etree.ElementTree import Element, ParseError, parse
 
 import font_reader
-import neume_dict
 from complex_doc_template import ComplexDocTemplate
 from cursor import Cursor
 from drop_cap import Dropcap
-from enums import *
+from enums import Line
 from glyph_line import GlyphLine
 from glyphs import Glyph
 from lyric import Lyric
@@ -37,8 +36,10 @@ class Kassia:
         self.header_odd_paragraph = None
         self.header_odd_pagenum_style = None
         self.footer_paragraph = None
+        self.footer_pagenum_style = None
         self.init_styles()
         self.input_filename = input_filename
+        self.neume_info_dict = {}
         try:
             open(input_filename, "r")
             file_readable = True
@@ -47,7 +48,7 @@ class Kassia:
             logging.error("XML file not readable.")
 
         if file_readable:
-            font_reader.register_fonts()
+            self.neume_info_dict = font_reader.register_fonts()
             self.parse_file()
             self.build_document(output_file)
             self.create_pdf()
@@ -174,10 +175,14 @@ class Kassia:
                 default_footer_style = self.styleSheet['Footer']
                 footer_attrib_dict = self.fill_attribute_dict(child_elem.attrib)
                 if 'style' in footer_attrib_dict:
-                    default_footer_style = getattr(self.styleSheet, footer_attrib_dict['style'], 'Header')
+                    default_footer_style = getattr(self.styleSheet, footer_attrib_dict['style'], 'Footer')
                 footer_style = self.merge_paragraph_styles(default_footer_style, footer_attrib_dict)
                 footer_text = child_elem.text.strip()
                 self.footer_paragraph: Paragraph = Paragraph(footer_text, footer_style)
+                for embedded_attrib in child_elem:
+                    if embedded_attrib.tag is not None and embedded_attrib.tag == 'page-number':
+                        pagenum_attrib_dict = self.fill_attribute_dict(embedded_attrib.attrib)
+                        self.footer_pagenum_style = self.merge_paragraph_styles(default_footer_style, pagenum_attrib_dict)
 
             if child_elem.tag == 'pagebreak':
                 self.story.append(PageBreak())
@@ -204,13 +209,20 @@ class Kassia:
                         neumes_elem = troparion_child_elem
                         attribs_from_bnml = self.fill_attribute_dict(neumes_elem.attrib)
                         neumes_style = self.merge_paragraph_styles(self.styleSheet['Neumes'], attribs_from_bnml)
+                        # Get font family name without 'Main', 'Martyria', etc.
+                        font_family_name, _ = neumes_style.fontName.rsplit(' ', 1)
+                        neume_config = self.neume_info_dict[font_family_name]
 
-                        for neume_char in neumes_elem.text.strip().split():
-                            neume = Neume(char=neume_char,
-                                          font_family=neumes_style.fontName,
-                                          font_size=neumes_style.fontSize,
-                                          color=neumes_style.textColor)
-                            neumes_list.append(neume)
+                        for neume_chunk in neumes_elem.text.strip().split():
+                            # Check for ligatures and conditionals, if none, build from basic neume parts
+                            neume_name_list = self.find_neume_names(neume_chunk, neume_config)
+                            for neume_name in neume_name_list:
+                                try:
+                                    neume = self.create_neume(neume_name, neume_config, neumes_style.fontName, neumes_style)
+                                    if neume:  # neume will be None if neume not found
+                                        neumes_list.append(neume)
+                                except KeyError as ke:
+                                    logging.error("Couldn't add neume: {}. Check bnml for bad symbol and verify glyphnames.yaml is correct.".format(ke))
 
                     if troparion_child_elem.tag == 'lyrics':
                         lyrics_elem = troparion_child_elem
@@ -233,18 +245,102 @@ class Kassia:
                             attribs_from_bnml = self.fill_attribute_dict(dropcap_elem.attrib)
                             dropcap_style = self.merge_paragraph_styles(dropcap_style, attribs_from_bnml)
                         dropcap_text = dropcap_elem.text.strip()
-                        dropcap = Dropcap(dropcap_text, 10, dropcap_style)
+                        dropcap = Dropcap(dropcap_text, dropcap_style.rightIndent, dropcap_style)
 
                 if neumes_list:
                     self.draw_troparion(neumes_list, lyrics_list, dropcap)
 
         try:
             self.doc.build(self.story,
-                           onFirstPage=self.draw_footer,
+                           onFirstPage=self.draw_header_footer,
                            onEvenPages=self.draw_header_footer,
                            onOddPages=self.draw_header_footer)
         except IOError:
             logging.error("Could not save XML file.")
+
+    def find_neume_names(self, neume_chunk_name: str, neume_config: Dict) -> List[str]:
+        """Check for conditional neumes and replace them if necessary."""
+        if neume_chunk_name.count('_') == 0:
+            return [neume_chunk_name]
+
+        base_neume, possible_cond_neumes = neume_chunk_name.split('_', 1)
+        for conditional in neume_config['classes']['conditional_neumes'].values():
+            if base_neume in conditional['base_neume'] and possible_cond_neumes in conditional['component_glyphs']:
+                neume_chunk_name = neume_chunk_name.replace(conditional['replace_glyph'], conditional['draw_glyph'])
+                break
+
+        return self._replace_ligatures(neume_chunk_name, neume_config)
+
+    @staticmethod
+    def _replace_ligatures(neume_chunk_name: str, neume_config: Dict) -> List[str]:
+        """Tries to replace ligatures in a neume_chunk. Works by chopping off the last neume in the chunk and checking
+        the remainder to see if it matches any ligatures in the neume config list."""
+        possible_lig = neume_chunk_name
+        neume_list = []
+        while possible_lig.count('_') >= 1:
+            if possible_lig in neume_config['glyphnames']:
+                neume_list.insert(0, possible_lig)
+                return neume_list
+            possible_lig, remainder = possible_lig.rsplit('_', 1)
+            neume_list.insert(0, remainder)
+
+        neume_list.insert(0, possible_lig)
+
+        return neume_list
+
+    def create_neume(self, neume_name: str, neume_config: Dict, font_name: str, neume_style: ParagraphStyle) -> Neume:
+        """Creates a neume object using neume name and font configuration.
+        :param neume_name: Name of neume.
+        :param neume_config: Font configuration information from yaml.
+        :param font_name: Name of neume font.
+        :param neume_style: Neume style information.
+        :return: A neume.
+        """
+        try:
+            lyric_offset = neume_config['classes']['lyric_offsets'][neume_name] * neume_style.fontSize
+        except KeyError:
+            lyric_offset = None
+
+        try:
+            neume_char = neume_config['glyphnames'][neume_name]['codepoint']
+        except KeyError as ke:
+            logging.info("Couldn't add neume: {}. Attempting to match by codepoint.".format(ke))
+            neume_name, neume_char = self.find_neume_name_by_codepoint(neume_name, font_name, neume_config['glyphnames'])
+            if neume_name is None:
+                return None
+
+        try:
+            neume = Neume(name=neume_name,
+                          char=neume_char,
+                          font_family=font_name.rsplit(' ', 1)[0],  # Font name without Main, Combo, Fthora, etc.
+                          font_fullname=neume_config['glyphnames'][neume_name]['family'],
+                          font_size=neume_style.fontSize,
+                          color=neume_style.textColor,
+                          standalone=neume_name in neume_config['classes']['standalone'],
+                          takes_lyric=neume_name in neume_config['classes']['takes_lyric'],
+                          lyric_offset=lyric_offset,
+                          keep_with_next=neume_name in neume_config['classes']['keep_with_next'])
+        except KeyError as ke:
+            logging.warning("Couldn't create neume: {}. Check bnml and font config yaml.".format(ke))
+            return None
+        return neume
+
+    @staticmethod
+    def find_neume_name_by_codepoint(neume_codepoint: str, font_name: str, glyph_names: Dict[str, Dict]) -> Tuple[str, str]:
+        """Find a neume name by its codepoint. Useful for old versions of bnml before neume_name was implemented.
+        :param neume_codepoint: The codepoint of neume.
+        :param font_name: Name of font where codepoint is found.
+        :param glyph_names: A dictionary of glyph names from font config.
+        :return: Neume name and neume codepoint
+        """
+        neume_name = None
+        for key, value in glyph_names.items():
+            if value['codepoint'] == neume_codepoint and value['family'] == font_name:
+                neume_name = key
+                break
+        if neume_name is None:
+            logging.error("Couldn't find neume {} in font config yaml.".format(neume_codepoint))
+        return neume_name, neume_codepoint
 
     @staticmethod
     def get_embedded_paragraph_text(para_tag_attribs: Element, default_style: ParagraphStyle) -> str:
@@ -308,7 +404,7 @@ class Kassia:
             dropcap_offset = dropcap.width + dropcap.x_padding
 
         if neumes_list:
-            neume_chunks = neume_dict.chunk_neumes(neumes_list)
+            neume_chunks = self.make_neume_chunks(neumes_list)
             glyph_line: List[Glyph] = self.make_glyph_list(neume_chunks, lyrics_list)
             lines_list: List[GlyphLine] = self.line_break(glyph_line,
                                                           Cursor(dropcap_offset, 0),
@@ -409,19 +505,19 @@ class Kassia:
         elif doc.pageTemplate.id == 'Odd':
             self.draw_header(canvas, doc, self.header_odd_paragraph, self.header_odd_pagenum_style)
 
-        self.draw_footer(canvas, doc)
+        self.draw_footer(canvas, doc, self.footer_pagenum_style)
 
-    def draw_header(self, canvas, doc, header_paragraph: Paragraph, header_pagenum_style: ParagraphStyle):
+    def draw_header(self, canvas, doc, paragraph: Paragraph, pagenum_style: ParagraphStyle):
         """Draws the header onto the canvas.
         :param canvas: Canvas, passed from document.build.
         :param doc: SimpleDocTemplate, passed from document.build.
-        :param header_paragraph: Paragraph of header text/style to draw.
-        :param header_pagenum_style: The style of page number to draw.
+        :param paragraph: Paragraph of header text/style to draw.
+        :param pagenum_style: The style of page number to draw.
         """
-        if not header_paragraph:
+        if not paragraph:
             return
 
-        style = header_paragraph.style
+        style = paragraph.style
 
         if style.borderWidth:
             canvas.setStrokeColor(style.borderColor)
@@ -439,26 +535,27 @@ class Kassia:
 
         if style.alignment == TA_LEFT:
             x_pos = self.doc.left
-            canvas.drawString(x_pos, y_pos, header_paragraph.text)
+            canvas.drawString(x_pos, y_pos, paragraph.text)
         elif style.alignment == TA_RIGHT:
             x_pos = self.doc.right
-            canvas.drawRightString(x_pos, y_pos, header_paragraph.text)
+            canvas.drawRightString(x_pos, y_pos, paragraph.text)
         elif style.alignment == TA_CENTER:
             x_pos = self.doc.center
-            canvas.drawCentredString(x_pos, y_pos, header_paragraph.text)
+            canvas.drawCentredString(x_pos, y_pos, paragraph.text)
 
-        if header_pagenum_style is not None:
-            if header_pagenum_style.alignment == TA_LEFT:
+        if pagenum_style is not None:
+            if pagenum_style.alignment == TA_LEFT:
                 canvas.drawString(self.doc.left, y_pos, str(canvas.getPageNumber()))
-            elif header_pagenum_style.alignment == TA_RIGHT:
+            elif pagenum_style.alignment == TA_RIGHT:
                 canvas.drawRightString(self.doc.right, y_pos, str(canvas.getPageNumber()))
-            elif header_pagenum_style.alignment == TA_CENTER:
+            elif pagenum_style.alignment == TA_CENTER:
                 canvas.drawCentredString(self.doc.center, y_pos, str(canvas.getPageNumber()))
 
-    def draw_footer(self, canvas, doc):
+    def draw_footer(self, canvas, doc, pagenum_style: ParagraphStyle):
         """Draws the footer onto the canvas.
         :param canvas: Canvas, passed from document.build.
         :param doc: SimpleDocTemplate, passed from document.build.
+        :param pagenum_style: The style of page number to draw.
         """
         if not self.footer_paragraph:
             return
@@ -489,9 +586,54 @@ class Kassia:
             x_pos = self.doc.center
             canvas.drawCentredString(x_pos, y_pos, self.footer_paragraph.text)
 
+        if pagenum_style is not None:
+            if pagenum_style.alignment == TA_LEFT:
+                canvas.drawString(self.doc.left, y_pos, str(canvas.getPageNumber()))
+            elif pagenum_style.alignment == TA_RIGHT:
+                canvas.drawRightString(self.doc.right, y_pos, str(canvas.getPageNumber()))
+            elif pagenum_style.alignment == TA_CENTER:
+                canvas.drawCentredString(self.doc.center, y_pos, str(canvas.getPageNumber()))
+
+    @staticmethod
+    def make_neume_chunks(neume_list: List[Neume]) -> List[NeumeChunk]:
+        """Break a list of neumes into logical chunks based on whether a linebreak can occur between them
+        :param neume_list: Iterable of type Neume
+        """
+        chunks_list: List[NeumeChunk] = []
+        i = 0
+        while i < len(neume_list):
+            # Grab next neume
+            neume = neume_list[i]
+            chunk = NeumeChunk(neume)
+
+            # Special case for bareia, since it's non-breaking but comes before the next neume, unlike a fthora.
+            # So attach the next neume and increment the counter.
+            if neume.keep_with_next and (i + 1) < len(neume_list):
+                chunk.append(neume_list[i+1])
+                chunk.base_neume = neume_list[i+1]
+                i += 1
+            else:
+                chunk.base_neume = neume
+
+            # Add more neumes to chunk like fthora, ison, etc.
+            j = 1
+            if (i+1) < len(neume_list):
+                while not neume_list[i + j].standalone:
+                    chunk.append(neume_list[i+j])
+                    j += 1
+                    if i+j >= len(neume_list):
+                        break
+            i += j
+            chunks_list.append(chunk)
+            # Check if we're at the end of the array
+            if i >= len(neume_list):
+                break
+
+        return chunks_list
+
     @staticmethod
     def make_glyph_list(neume_chunk_list: List[NeumeChunk], lyrics_list: List[Lyric]) -> List[Glyph]:
-        """Takes a list of neumes and a list of lyrics and combines them into a single glyph list.
+        """Takes a list of neume chunks and a list of lyrics and combines them into a single glyph list.
         :param neume_chunk_list: A list of neume chunks.
         :param lyrics_list: A list of lyrics.
         :return glyph_list: A list of glyphs.
@@ -503,12 +645,12 @@ class Kassia:
             neume_chunk = neume_chunk_list[i]
 
             # If any neumes within chunk take lyrics
-            neume_takes_lyric: bool = False
+            lyrical_chunk: bool = False
             for neume in neume_chunk:
-                if neume_dict.takes_lyric(neume):
-                    neume_takes_lyric = True
+                if neume.takes_lyric:
+                    lyrical_chunk = True
 
-            if neume_takes_lyric:
+            if lyrical_chunk:
                 if l_ptr < len(lyrics_list):
                     lyric = lyrics_list[l_ptr]
                     glyph = Glyph(neume_chunk=neume_chunk,
@@ -527,8 +669,7 @@ class Kassia:
             i += 1
         return glyph_line
 
-    @staticmethod
-    def line_break(glyph_list: List[Glyph], starting_pos: Cursor, line_width: int, line_spacing: int,
+    def line_break(self, glyph_list: List[Glyph], starting_pos: Cursor, line_width: int, line_spacing: int,
                    glyph_spacing: int) -> List[GlyphLine]:
         """Break continuous list of glyphs into lines- currently greedy.
         :param glyph_list: A list of glyphs.
@@ -542,7 +683,7 @@ class Kassia:
         glyph_line_list: List[GlyphLine] = []
         glyph_line: GlyphLine = GlyphLine(line_spacing, glyph_spacing)
         
-        # Need to shift nuemes and lyrics up by this amount, since glyph will be drawn aligned to bottom, and
+        # Need to shift neumes and lyrics up by this amount, since glyph will be drawn aligned to bottom, and
         # lyrics are being added below neumes
         y_offset = max(getattr(glyph.lyric, 'top_margin', 0) for glyph in glyph_list)
 
@@ -561,14 +702,17 @@ class Kassia:
                 adj_lyric_pos = (glyph.width - lyric_width) / 2.
 
                 # special cases
-                primary_neume = glyph.neume_chunk[0]
-                if primary_neume.char == '/':
-                    # If variea, center lyric under neume chunk without vareia
+                primary_neume: Neume = glyph.neume_chunk[0]
+                if primary_neume.name == 'bare':
+                    # If bareia, center lyric under neume chunk without bareia
                     adj_lyric_pos += primary_neume.width / 2.
-                elif primary_neume.char == '_':
+                elif primary_neume.name == 'syne':
                     # If syneches elaphron, center lyric under elaphron
-                    apostr_width = pdfmetrics.stringWidth('!', primary_neume.font_family, primary_neume.font_size)
-                    adj_lyric_pos += apostr_width / 2.
+                    # Calculate if wasn't specified in neume font config
+                    if primary_neume.lyric_offset is None:
+                        apos_char = self.neume_info_dict[primary_neume.font_family]['glyphnames']['apos']['codepoint']
+                        primary_neume.lyric_offset = pdfmetrics.stringWidth(apos_char, primary_neume.font_fullname, primary_neume.font_size)
+                    adj_lyric_pos += primary_neume.lyric_offset / 2.
             else:
                 # center neume
                 adj_neume_pos = (glyph.width - neume_width) / 2.
@@ -622,13 +766,12 @@ class Kassia:
 
                     # special cases
                     primary_neume = glyph.neume_chunk[0]
-                    if primary_neume.char == '/':
-                        # If variea, center lyric under neume chunk without vareia
+                    if primary_neume.name == 'bare':
+                        # If bareia, center lyric under neume chunk excluding bareia
                         adj_lyric_pos += primary_neume.width / 2.
-                    elif primary_neume.char == '_':
+                    elif primary_neume.name == 'syne':
                         # If syneches elaphron, center lyric under elaphron
-                        apostr_width = pdfmetrics.stringWidth('!', primary_neume.font_family, primary_neume.font_size)
-                        adj_lyric_pos += apostr_width / 2.
+                        adj_lyric_pos += primary_neume.lyric_offset / 2.
                 else:
                     # center neume
                     adj_neume_pos = (glyph.width - neume_width) / 2.
