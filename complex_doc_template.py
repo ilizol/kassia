@@ -21,8 +21,7 @@ class ComplexDocTemplate(BaseDocTemplate):
         frameT = Frame(self.leftMargin, self.bottomMargin,
                        self.width, self.height,
                        leftPadding=0, rightPadding=0, bottomPadding=0, topPadding=0,
-                       # enable showBoundary for debug reasons
-                       # showBoundary=1,
+                       showBoundary=0,
                        id='normal')
 
         self.addPageTemplates([
