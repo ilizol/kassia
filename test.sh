@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # examples
 python3 kassia.py examples/kontakion_prophet_elias_1.xml examples/kontakion_prophet_elias_1.pdf
 python3 kassia.py examples/kontakion_prophet_elias_2.xml examples/kontakion_prophet_elias_2.pdf
@@ -9,3 +11,5 @@ python3 kassia.py sample3.xml sample3.pdf
 python3 kassia.py tests/chronos_test.xml tests/chronos_test.pdf
 python3 kassia.py tests/fthora_test.xml tests/fthora_test.pdf
 python3 kassia.py tests/martyria_test.xml tests/martyria_test.pdf
+python3 kassia.py tests/old_score_style.xml tests/old_score_style.pdf
+python3 kassia.py tests/underscore_test.xml tests/underscore_test.pdf
